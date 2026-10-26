@@ -6,9 +6,8 @@
 <title>Tanzeel Hussain — Cybersecurity</title>
 <meta name="description" content="Tanzeel Hussain — Cybersecurity student at Iqra University focused on network security, Zero Trust and IoT security.">
 <meta property="og:title" content="Tanzeel Hussain — Cybersecurity">
-<meta property="og:description" content="Network security, Zero Trust and IoT security. Projects, skills, certifications and CV.">
-<meta property="og:image" content="https://tanzeel0hussain.github.io/photo.jpg">
-<link rel="icon" href="photo.jpg">
+<meta property="og:description" content="Network security, Zero Trust and IoT security. Projects, open-source work, skills and certifications.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%231d4ed8'/%3E%3Cstop offset='1' stop-color='%230ea5e9'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3ETH%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -31,7 +30,6 @@
   svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
   svg.fill { fill: currentColor; stroke: none; }
   .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-  .print-only { display: none; }
 
   /* Nav */
   nav { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.88); backdrop-filter: saturate(180%) blur(12px); border-bottom: 1px solid transparent; transition: border-color .2s; }
@@ -81,7 +79,7 @@
 
   .profile-card { position: relative; background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 28px; box-shadow: 0 24px 60px rgba(15,23,42,.10); }
   .profile-top { display: flex; align-items: center; gap: 16px; padding-bottom: 20px; border-bottom: 1px solid var(--line); margin-bottom: 18px; }
-  .photo { width: 92px; height: 92px; border-radius: 18px; object-fit: cover; background: var(--bg-soft); }
+  .monogram { width: 72px; height: 72px; border-radius: 18px; flex-shrink: 0; display: grid; place-items: center; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; font-size: 1.6rem; font-weight: 800; letter-spacing: .02em; box-shadow: 0 10px 24px rgba(29,78,216,.25); }
   .profile-top h3 { font-size: 1.15rem; color: var(--text); line-height: 1.3; }
   .profile-top p { font-size: .88rem; color: var(--muted); }
   .info { display: grid; gap: 12px; }
@@ -143,6 +141,8 @@
   .card-link svg { width: 15px; height: 15px; transition: transform .15s; }
   .card-link:hover svg { transform: translate(2px,-2px); }
   .more { text-align: center; margin-top: 36px; }
+  .sub-head { font-size: 1.15rem; margin: 44px 0 18px; }
+  .oss { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 
   /* Experience timeline */
   .timeline { position: relative; display: grid; gap: 18px; }
@@ -194,7 +194,7 @@
 
   @media (max-width: 960px) {
     .hero-grid, .about, .edu, .contact-band { grid-template-columns: 1fr; }
-    .featured { grid-template-columns: 1fr; }
+    .featured, .oss { grid-template-columns: 1fr; }
     .projects, .skills { grid-template-columns: 1fr 1fr; }
     .stats { grid-template-columns: 1fr 1fr; }
     .stat:nth-child(2) { border-right: 0; }
@@ -219,77 +219,6 @@
     .head { margin-bottom: 28px; }
   }
 
-  /* ========== Print / PDF CV ========== */
-  @page { size: A4; margin: 14mm 14mm 12mm; }
-  @media print {
-    :root { --line: #d8dee8; }
-    body { font-size: 9.6pt; line-height: 1.45; color: #1e293b; }
-    nav, .btns, .socials-inline, .more, .card-link, .float-badge, .no-print, footer, .hero::before, .featured .card::after, .contact-band::before { display: none !important; }
-    .print-only { display: block; }
-    .reveal { opacity: 1 !important; transform: none !important; }
-    .wrap { max-width: none; padding: 0; }
-    section, .hero { padding: 0; margin: 0 0 9pt; background: none !important; border: 0 !important; }
-    .card { border: 0; padding: 0; box-shadow: none !important; background: none; border-radius: 0; }
-    .card:hover { box-shadow: none; }
-    .eyebrow { display: none; }
-    h2 { font-size: 11pt; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); border-bottom: 1.2pt solid var(--accent); padding-bottom: 2pt; margin-bottom: 7pt; font-weight: 700; }
-    .head { display: block; margin-bottom: 0; }
-    .head p { display: none; }
-    h3 { font-size: 10.2pt; }
-
-    .hero-grid { grid-template-columns: 1fr auto; gap: 16pt; align-items: start; }
-    .status, .hello { display: none; }
-    h1 { font-size: 22pt; margin-bottom: 2pt; letter-spacing: -.02em; }
-    .grad { color: var(--text); background: none; -webkit-text-fill-color: var(--text); }
-    .title { font-size: 11pt; margin-bottom: 5pt; color: var(--accent); }
-    .title span { color: var(--accent); }
-    .lead { font-size: 9.6pt; margin-bottom: 0; max-width: none; }
-    .print-contact { display: flex; flex-wrap: wrap; gap: 3pt 14pt; font-size: 8.8pt; margin-top: 6pt; color: #334155; }
-    .profile-card { padding: 0; border: 0; box-shadow: none; }
-    .profile-top { border: 0; padding: 0; margin: 0; }
-    .profile-top div, .info { display: none; }
-    .photo { width: 72pt; height: 72pt; border-radius: 10pt; }
-    .stats { display: none; }
-
-    #about .about { grid-template-columns: 1fr; gap: 0; }
-    .about-text p { font-size: 9.6pt; margin-bottom: 4pt; }
-    .about-text p:nth-child(n+2), .about-text blockquote, .focus, .hero .lead { display: none; }
-
-    .t-item { display: block; position: relative; }
-    .t-date { position: absolute; right: 0; top: 0; padding: 0; font-size: 8.6pt; }
-    .org { margin-bottom: 1pt; font-size: 8.8pt; }
-    .t-item .card p { font-size: 9pt; }
-    .timeline { gap: 5pt; }
-
-    .featured, .projects { grid-template-columns: 1fr 1fr; gap: 6pt 16pt; margin-bottom: 6pt; }
-    .featured .card { padding: 0; }
-    .pill { display: none; }
-    .featured h3, .proj h3 { font-size: 10pt; margin-bottom: 1pt; }
-    .featured p, .proj p { font-size: 9pt; margin-bottom: 2pt; }
-    .bullets { display: none; }
-    .tags { margin: 0; gap: 3pt; }
-    .tag { font-size: 7.6pt; padding: 0 5pt; }
-    .card-icon { display: none; }
-    .projects { display: none; }
-
-    .skills { grid-template-columns: 1fr; gap: 3pt; }
-    .skills .card { display: flex; gap: 8pt; align-items: baseline; }
-    .skills h3 { font-size: 9.4pt; margin: 0; min-width: 120pt; }
-    .skills h3 svg { display: none; }
-    .chips { gap: 3pt 4pt; }
-    .chip { font-size: 8.6pt; padding: 0 5pt; border-radius: 3pt; }
-
-    .edu { grid-template-columns: 1.15fr 1fr; gap: 16pt; }
-    .edu .card p { font-size: 9pt; margin-bottom: 3pt; }
-    .cert { padding: 2.5pt 0; border: 0; }
-    .cert h4 { font-size: 9.2pt; }
-    .cert span { font-size: 8.4pt; }
-
-    #contact { display: none; }
-    .card, .t-item, .cert { break-inside: avoid; }
-    h2 { break-after: avoid; }
-    a { color: inherit; }
-  }
 </style>
 </head>
 <body>
@@ -333,7 +262,7 @@
         <a href="#education">Education</a>
         <a href="#contact">Contact</a>
       </div>
-      <a class="btn btn-primary btn-sm" href="Tanzeel_Hussain_CV.pdf" download><svg><use href="#i-download"/></svg>CV</a>
+      <a class="btn btn-primary btn-sm" href="https://github.com/Tanzeel0Hussain" target="_blank" rel="noopener"><svg class="fill"><use href="#i-github"/></svg>GitHub</a>
     </div>
   </div>
 </nav>
@@ -347,16 +276,8 @@
         <h1><span class="grad">Tanzeel Hussain</span></h1>
         <div class="title">Cybersecurity Student <span>· Network, Zero Trust &amp; IoT Security</span></div>
         <p class="lead">Final-year Computer Science student building defensive security tools — from packet and log analysis to authenticated communication for embedded devices.</p>
-        <div class="print-only print-contact">
-          <span>Islamabad, Pakistan</span>
-          <a href="mailto:tanzeelhussain38529@gmail.com">Email</a>
-          <a href="https://tanzeel0hussain.github.io">Portfolio</a>
-          <a href="https://www.linkedin.com/in/tanzeel-hussain0/">LinkedIn</a>
-          <a href="https://github.com/Tanzeel0Hussain">GitHub</a>
-        </div>
         <div class="btns">
           <a href="#projects" class="btn btn-primary">View my work</a>
-          <a class="btn btn-outline" href="Tanzeel_Hussain_CV.pdf" download><svg><use href="#i-download"/></svg>Download CV</a>
           <a href="#contact" class="btn btn-outline"><svg><use href="#i-mail"/></svg>Contact</a>
         </div>
         <div class="socials-inline">
@@ -371,8 +292,7 @@
       <div class="profile-card">
         <span class="float-badge"><svg><use href="#i-shield"/></svg>Defensive Security</span>
         <div class="profile-top">
-          <!-- Doosri photo lagani ho: "me.jpg" upload karein aur src="me.jpg" kar dein -->
-          <img class="photo" src="photo.jpg" alt="Tanzeel Hussain" width="92" height="92">
+          <div class="monogram" aria-hidden="true">TH</div>
           <div>
             <h3>Tanzeel Hussain</h3>
             <p>Cybersecurity · BS Computer Science</p>
@@ -462,6 +382,18 @@
     </div>
     <div class="featured">
       <div class="card reveal">
+        <span class="pill">New · Python</span>
+        <h3>NetGuard</h3>
+        <p>Home network security monitor: a small blue-team sensor for your own network, with a browser GUI. Released as v0.1.0.</p>
+        <ul class="bullets">
+          <li>Device inventory with alerts when an unknown device joins</li>
+          <li>ARP spoofing / man-in-the-middle and port-scan detection</li>
+          <li>Audit of open ports and risky services, with a report</li>
+        </ul>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Scapy</span><span class="tag">Flask</span><span class="tag">SQLite</span><span class="tag">IDS</span></div>
+        <a class="card-link" href="https://github.com/Tanzeel0Hussain/netguard" target="_blank" rel="noopener">View on GitHub <svg><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="card reveal">
         <span class="pill">Featured · Python</span>
         <h3>PacketSageX</h3>
         <p>Network traffic intelligence and forensics platform for analysing captures and scan results.</p>
@@ -473,20 +405,22 @@
         <div class="tags"><span class="tag">Python</span><span class="tag">PCAP</span><span class="tag">Nmap</span><span class="tag">Forensics</span></div>
         <a class="card-link" href="https://github.com/Tanzeel0Hussain/PacketSageX" target="_blank" rel="noopener">View on GitHub <svg><use href="#i-arrow"/></svg></a>
       </div>
-      <div class="card reveal">
-        <span class="pill">Featured · C++ / ESP32</span>
-        <h3>RangeLink32</h3>
-        <p>Smart ESP32 Wi-Fi extender and managed gateway with a responsive local admin dashboard.</p>
-        <ul class="bullets">
-          <li>NAPT routing, auto-reconnect and failover</li>
-          <li>Per-device control, data quotas and speed limits</li>
-          <li>Built with PlatformIO for embedded hardware</li>
-        </ul>
-        <div class="tags"><span class="tag">C++</span><span class="tag">ESP32</span><span class="tag">Networking</span><span class="tag">IoT</span></div>
-        <a class="card-link" href="https://github.com/Tanzeel0Hussain/RangeLink32" target="_blank" rel="noopener">View on GitHub <svg><use href="#i-arrow"/></svg></a>
-      </div>
     </div>
     <div class="projects">
+      <div class="card proj reveal">
+        <div class="card-icon"><svg><use href="#i-server"/></svg></div>
+        <h3>RangeLink32</h3>
+        <p>ESP32 Wi-Fi extender and managed gateway with NAPT routing, failover, per-device quotas and speed limits, and a local dashboard.</p>
+        <div class="tags"><span class="tag">C++</span><span class="tag">ESP32</span><span class="tag">Networking</span></div>
+        <a class="card-link" href="https://github.com/Tanzeel0Hussain/RangeLink32" target="_blank" rel="noopener">View on GitHub <svg><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="card proj reveal">
+        <div class="card-icon"><svg><use href="#i-shield"/></svg></div>
+        <h3>ESP32 Wireless Defense Lab</h3>
+        <p>Receive-only ESP32 monitor that detects deauthentication and disassociation bursts, with a secured local dashboard.</p>
+        <div class="tags"><span class="tag">C++</span><span class="tag">802.11</span><span class="tag">Detection</span></div>
+        <a class="card-link" href="https://github.com/Tanzeel0Hussain/ESP32_Deauther-Evaltoin" target="_blank" rel="noopener">View on GitHub <svg><use href="#i-arrow"/></svg></a>
+      </div>
       <div class="card proj reveal">
         <div class="card-icon"><svg><use href="#i-wifi"/></svg></div>
         <h3>Wi-Fi Phantom</h3>
@@ -529,6 +463,31 @@
         <div class="tags"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Bug Bounty</span></div>
         <a class="card-link" href="https://github.com/Tanzeel0Hussain/VulnTrack" target="_blank" rel="noopener">View on GitHub <svg><use href="#i-arrow"/></svg></a>
       </div>
+      <div class="card proj reveal">
+        <div class="card-icon"><svg><use href="#i-cpu"/></svg></div>
+        <h3>Aegis Hand Tracking</h3>
+        <p>Real-time hand and body-pose tracking with MediaPipe, as a Python app and a browser demo. Camera frames stay on the device.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">MediaPipe</span><span class="tag">OpenCV</span></div>
+        <a class="card-link" href="https://github.com/Tanzeel0Hussain/Aegis-Hand-Tracking-System" target="_blank" rel="noopener">View on GitHub <svg><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+
+    <h3 class="sub-head reveal">Open-source contributions</h3>
+    <div class="oss">
+      <div class="card proj reveal">
+        <div class="card-icon"><svg><use href="#i-globe"/></svg></div>
+        <h3>Internet Archive provider for Vega</h3>
+        <p>Brings public domain and Creative Commons films from archive.org into the Vega media app: catalog, search, series, every format and a license filter. Pull request under review; a newer version with subtitles runs as its own source.</p>
+        <div class="tags"><span class="tag">TypeScript</span><span class="tag">REST APIs</span><span class="tag">Open source</span></div>
+        <a class="card-link" href="https://github.com/Zenda-Cross/vega-providers/pull/36" target="_blank" rel="noopener">View pull request <svg><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="card proj reveal">
+        <div class="card-icon"><svg><use href="#i-code"/></svg></div>
+        <h3>Vega app: torrent streams in external players</h3>
+        <p>Fix for issue #614: torrent links failed to open in an external video player. Pull request under review.</p>
+        <div class="tags"><span class="tag">TypeScript</span><span class="tag">React Native</span><span class="tag">Bug fix</span></div>
+        <a class="card-link" href="https://github.com/vega-org/vega-app/pull/615" target="_blank" rel="noopener">View pull request <svg><use href="#i-arrow"/></svg></a>
+      </div>
     </div>
     <div class="more"><a href="https://github.com/Tanzeel0Hussain?tab=repositories" target="_blank" rel="noopener" class="btn btn-outline"><svg class="fill"><use href="#i-github"/></svg>See all 20+ repositories</a></div>
   </div>
@@ -543,7 +502,7 @@
     <div class="skills">
       <div class="card reveal">
         <h3><svg><use href="#i-shield"/></svg>Security</h3>
-        <div class="chips"><span class="chip">Wireshark</span><span class="chip">Nmap</span><span class="chip">Kali Linux</span><span class="chip">Metasploit</span><span class="chip">SIEM</span><span class="chip">Zero Trust</span><span class="chip">IoT Security</span><span class="chip">Traffic Analysis</span></div>
+        <div class="chips"><span class="chip">Wireshark</span><span class="chip">Nmap</span><span class="chip">Kali Linux</span><span class="chip">Metasploit</span><span class="chip">SIEM</span><span class="chip">Zero Trust</span><span class="chip">IoT Security</span><span class="chip">Traffic Analysis</span><span class="chip">Scapy</span></div>
       </div>
       <div class="card reveal">
         <h3><svg><use href="#i-code"/></svg>Languages</h3>
@@ -601,7 +560,7 @@
 <footer>
   <div class="wrap">
     <span>© <span id="yr"></span> Tanzeel Hussain · Islamabad, Pakistan</span>
-    <a href="Tanzeel_Hussain_CV.pdf" download>Download CV (PDF)</a>
+    <a href="https://github.com/Tanzeel0Hussain" target="_blank" rel="noopener">github.com/Tanzeel0Hussain</a>
   </div>
 </footer>
 

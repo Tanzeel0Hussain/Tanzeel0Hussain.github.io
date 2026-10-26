@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tanzeel Hussain — CV</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0b1a33;
+    --navy-2: #13264a;
+    --accent: #1d4ed8;
+    --sky: #38bdf8;
+    --text: #0f172a;
+    --body: #334155;
+    --muted: #64748b;
+    --line: #dbe3ee;
+  }
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #e9edf3; }
+  body { font-family: "Inter", system-ui, sans-serif; color: var(--body); font-size: 8.9pt; line-height: 1.42; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  a { color: inherit; text-decoration: none; }
+  svg { width: 10pt; height: 10pt; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+  svg.fill { fill: currentColor; stroke: none; }
+
+  .page { width: 210mm; height: 297mm; margin: 24px auto; background: #fff; display: grid; grid-template-columns: 68mm 1fr; box-shadow: 0 10px 40px rgba(15,23,42,.15); overflow: hidden; }
+
+  /* Sidebar */
+  aside { background: var(--navy); color: #cbd5e1; padding: 13mm 8mm 10mm; display: flex; flex-direction: column; gap: 13pt; }
+  .photo { width: 36mm; height: 36mm; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto 2pt; border: 3pt solid rgba(255,255,255,.14); box-shadow: 0 0 0 1.2pt var(--sky); }
+  .name { text-align: center; }
+  .name h1 { color: #fff; font-size: 17pt; font-weight: 800; letter-spacing: .04em; line-height: 1.15; }
+  .name .role { color: var(--sky); font-weight: 700; font-size: 9.6pt; margin-top: 4pt; }
+  .name .sub { color: #94a3b8; font-size: 8.6pt; margin-top: 1pt; }
+  aside h2 { color: #fff; font-size: 8.4pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding-bottom: 4pt; margin-bottom: 6pt; border-bottom: 1pt solid rgba(56,189,248,.45); }
+  .contact { display: grid; gap: 5pt; }
+  .contact a, .contact span { display: flex; align-items: center; gap: 6pt; color: #e2e8f0; font-size: 7.9pt; white-space: nowrap; letter-spacing: -.01em; }
+  .contact svg { color: var(--sky); }
+  .list { list-style: none; display: grid; gap: 2.6pt; }
+  .list li { position: relative; padding-left: 10pt; font-size: 8.5pt; color: #e2e8f0; }
+  .list li::before { content: ""; position: absolute; left: 0; top: 4.6pt; width: 4pt; height: 4pt; border-radius: 1pt; background: var(--sky); transform: rotate(45deg); }
+  .langs { display: grid; gap: 4pt; }
+  .lang { display: flex; justify-content: space-between; font-size: 8.5pt; color: #e2e8f0; }
+  .lang span { color: #94a3b8; }
+
+  /* Main */
+  main { padding: 12mm 11mm 10mm 10mm; display: flex; flex-direction: column; gap: 10pt; }
+  main h2 { display: flex; align-items: center; gap: 7pt; color: var(--navy); font-size: 10.4pt; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 5pt; }
+  main h2::after { content: ""; flex: 1; height: 1.2pt; background: linear-gradient(90deg, var(--accent), transparent); }
+  main h2 .ic { width: 16pt; height: 16pt; border-radius: 4pt; background: var(--navy); color: var(--sky); display: grid; place-items: center; }
+  main h2 .ic svg { width: 9pt; height: 9pt; }
+  .summary { font-size: 9.1pt; color: var(--body); }
+
+  .item { margin-bottom: 6pt; }
+  .item:last-child { margin-bottom: 0; }
+  .row { display: flex; justify-content: space-between; align-items: baseline; gap: 8pt; }
+  .item h3 { color: var(--text); font-size: 9.6pt; font-weight: 700; }
+  .date { color: var(--muted); font-size: 8.3pt; font-style: italic; white-space: nowrap; }
+  .org { color: var(--accent); font-weight: 600; font-size: 8.6pt; margin: 0.5pt 0 2pt; }
+  .stack { color: var(--muted); font-size: 7.9pt; font-style: italic; font-weight: 500; }
+  ul.bul { list-style: none; display: grid; gap: 1.6pt; }
+  ul.bul li { position: relative; padding-left: 10pt; font-size: 8.7pt; }
+  ul.bul li::before { content: ""; position: absolute; left: 1pt; top: 4.4pt; border-left: 4pt solid var(--accent); border-top: 2.6pt solid transparent; border-bottom: 2.6pt solid transparent; }
+  ul.bul b { color: var(--text); font-weight: 600; }
+
+  .certs { display: grid; grid-template-columns: 1fr 1fr; gap: 4pt 12pt; }
+  .cert { display: flex; gap: 6pt; align-items: flex-start; }
+  .cert svg { color: var(--accent); margin-top: 1.5pt; }
+  .cert b { display: block; color: var(--text); font-size: 8.7pt; font-weight: 600; line-height: 1.3; }
+  .cert span { color: var(--muted); font-size: 7.9pt; }
+
+  .print-bar { text-align: center; margin: 18px 0 0; font-family: inherit; }
+  .print-bar button { font: 600 14px "Inter", sans-serif; padding: 10px 18px; border-radius: 8px; border: 0; background: var(--accent); color: #fff; cursor: pointer; }
+  .print-bar a { font: 500 14px "Inter", sans-serif; color: var(--accent); margin-left: 14px; }
+  @media print {
+    html, body { background: #fff; }
+    .page { margin: 0; box-shadow: none; }
+    .print-bar { display: none; }
+  }
+  @media screen and (max-width: 820px) {
+    .page { transform-origin: top left; }
+  }
+</style>
+</head>
+<body>
+
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></symbol>
+</svg>
+
+<div class="page">
+  <aside>
+    <div>
+      <img class="photo" src="photo.jpg" alt="Tanzeel Hussain">
+    </div>
+    <div class="name">
+      <h1>TANZEEL<br>HUSSAIN</h1>
+      <div class="role">Ethical Hacker</div>
+      <div class="sub">Cybersecurity Student</div>
+    </div>
+
+    <div>
+      <h2>Contact</h2>
+      <div class="contact">
+        <a href="mailto:tanzeelhussain38529@gmail.com"><svg><use href="#i-mail"/></svg>tanzeelhussain38529@gmail.com</a>
+        <span><svg><use href="#i-pin"/></svg>Islamabad, Pakistan</span>
+        <a href="https://tanzeel0hussain.github.io"><svg><use href="#i-globe"/></svg>tanzeel0hussain.github.io</a>
+        <a href="https://github.com/Tanzeel0Hussain"><svg class="fill"><use href="#i-github"/></svg>github.com/Tanzeel0Hussain</a>
+        <a href="https://www.linkedin.com/in/tanzeel-hussain0/"><svg class="fill"><use href="#i-linkedin"/></svg>linkedin.com/in/tanzeel-hussain0</a>
+      </div>
+    </div>
+
+    <div>
+      <h2>Security Tools</h2>
+      <ul class="list">
+        <li>Kali Linux</li><li>Metasploit Framework</li><li>Burp Suite</li><li>Wireshark</li><li>Nmap / Zenmap</li><li>Scapy (Python)</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2>Programming</h2>
+      <ul class="list">
+        <li>Python (Security Scripting)</li><li>C++ (Embedded / ESP32)</li><li>JavaScript, HTML &amp; CSS</li><li>Java</li><li>Bash</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2>Competencies</h2>
+      <ul class="list">
+        <li>Penetration Testing</li><li>Network Recon &amp; Scanning</li><li>Packet &amp; Traffic Analysis</li><li>Vulnerability Assessment</li><li>Log Analysis</li><li>Zero Trust Architecture</li><li>IoT Security</li><li>OSINT Techniques</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2>Tools &amp; Platforms</h2>
+      <ul class="list">
+        <li>Linux CLI</li><li>Git &amp; GitHub</li><li>Docker</li><li>Raspberry Pi &amp; ESP32</li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <section>
+      <h2><span class="ic"><svg><use href="#i-user"/></svg></span>Profile</h2>
+      <p class="summary">Motivated final-year BS Computer Science student specialising in cybersecurity, ethical hacking and network security. Hands-on experience building security tools in Python and C++ — port scanners, packet sniffers, log analysers and ESP32-based wireless monitors. Currently developing a Zero Trust Architecture as my Final Year Project. Seeking an internship to apply practical skills in penetration testing, network security and security analysis.</p>
+    </section>
+
+    <section>
+      <h2><span class="ic"><svg><use href="#i-cap"/></svg></span>Education</h2>
+      <div class="item">
+        <div class="row"><h3>BS Computer Science (BSCS)</h3><span class="date">Oct 2023 – Feb 2027</span></div>
+        <div class="org">Iqra University, Islamabad · 7th Semester · Focus: Cybersecurity &amp; Network Security</div>
+        <ul class="bul">
+          <li><b>Final Year Project:</b> Zero Trust Architecture for IoT — identity-based access control, micro-segmentation, device verification, message authentication and replay protection (ESP32 / ESP-NOW, Raspberry Pi).</li>
+          <li><b>Key Courses:</b> Data Communication &amp; Networks, Operating Systems, Digital Forensics, Web Security, Database Systems, Data Structures &amp; Algorithms.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="ic"><svg><use href="#i-shield"/></svg></span>Security Projects</h2>
+      <div class="item">
+        <div class="row"><h3>Cybersecurity Tools Suite (15+ Tools)</h3><span class="stack">Python · Scapy · Sockets · Tkinter</span></div>
+        <ul class="bul">
+          <li>Built a port scanner (CLI + GUI), Wireshark-style packet sniffer and vulnerability scanner.</li>
+          <li>Directory brute-forcer, login brute-force simulator, password policy auditor and strength checker.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="row"><h3>PacketSageX — Network Forensics Platform</h3><span class="stack">Python · PCAP · Nmap</span></div>
+        <ul class="bul">
+          <li>PCAP and traffic analysis with protocol classification, Nmap result parsing and forensic reporting.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="row"><h3>Advanced Network Mapper</h3><span class="stack">Python · Network Recon</span></div>
+        <ul class="bul">
+          <li>Nmap-style host discovery, port enumeration and service fingerprinting written from scratch.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="row"><h3>Wi-Fi Phantom &amp; ESP32 Wireless Security Lab</h3><span class="stack">C++ · ESP32 · PlatformIO</span></div>
+        <ul class="bul">
+          <li>Defensive Wi-Fi monitors: passive scanning, deauth/disassociation detection, RSSI analysis, alerts and a local dashboard.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="row"><h3>Log Analyzer &amp; AI Cyber Threat Analyzer</h3><span class="stack">Python · JavaScript</span></div>
+        <ul class="bul">
+          <li>Detects anomalies, brute-force patterns and unauthorised access in logs; scores risk and suggests remediations.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="ic"><svg><use href="#i-award"/></svg></span>Certifications &amp; Training</h2>
+      <div class="certs">
+        <div class="cert"><svg><use href="#i-award"/></svg><div><b>Ethical Hacker</b><span>Cisco · Mar 2026</span></div></div>
+        <div class="cert"><svg><use href="#i-award"/></svg><div><b>Introduction to Cybersecurity</b><span>Cisco · Mar 2026</span></div></div>
+        <div class="cert"><svg><use href="#i-award"/></svg><div><b>Penetration Testing &amp; Web Hacking</b><span>Kamyab Freelancer Program · May 2026</span></div></div>
+        <div class="cert"><svg><use href="#i-award"/></svg><div><b>Kali Linux Essentials</b><span>Kamyab Freelancer Program · Jul 2026</span></div></div>
+        <div class="cert"><svg><use href="#i-award"/></svg><div><b>Cybersecurity &amp; Ethical Hacking</b><span>LinkedIn Learning</span></div></div>
+        <div class="cert"><svg><use href="#i-award"/></svg><div><b>CTF Competitions &amp; Pentest Labs</b><span>Self-directed: OWASP Top 10, OSINT, Bug Bounty</span></div></div>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="ic"><svg><use href="#i-users"/></svg></span>Leadership &amp; Attributes</h2>
+      <ul class="bul">
+        <li><b>Teaching Assistant</b> — Database Systems &amp; Operating Systems, Iqra University.</li>
+        <li><b>Class Representative</b> — coordinating between faculty and students.</li>
+        <li>Detail-oriented, with clear documentation skills for vulnerability reports and technical findings.</li>
+      </ul>
+    </section>
+  </main>
+</div>
+
+<div class="print-bar"><button onclick="print()">Save as PDF / Print</button><a href="Tanzeel_Hussain_CV.pdf" download>Download PDF</a><a href="./">← Back to portfolio</a></div>
+
+</body>
+</html>

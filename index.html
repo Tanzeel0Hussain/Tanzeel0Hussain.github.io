@@ -201,12 +201,15 @@
     .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
     .profile-card { max-width: 480px; }
   }
-  @media (max-width: 680px) {
-    .menu-btn { display: block; }
-    .nav-right .btn { display: none; }
+  @media (max-width: 900px) {
+    .nav-right { gap: 12px; }
+    .menu-btn { display: block; order: 2; }
     .links { display: none; position: absolute; top: 68px; left: 0; right: 0; flex-direction: column; gap: 0; background: #fff; border-bottom: 1px solid var(--line); }
     .links.open { display: flex; }
     .links a { padding: 14px 24px; }
+  }
+  @media (max-width: 680px) {
+    .nav-right .btn { display: none; }
     .hero { padding: 44px 0 48px; }
     .projects, .skills, .focus { grid-template-columns: 1fr; }
     .t-item { grid-template-columns: 1fr; gap: 6px; }

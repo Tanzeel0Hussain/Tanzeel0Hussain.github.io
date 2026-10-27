@@ -143,6 +143,9 @@
   .more { text-align: center; margin-top: 36px; }
   .sub-head { font-size: 1.15rem; margin: 44px 0 18px; }
   .oss { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .oss .pill { align-self: flex-start; }
+  .pill.status-merged { color: #047857; background: #ecfdf5; }
+  .pill.status-review { color: #92400e; background: #fffbeb; }
 
   /* Experience timeline */
   .timeline { position: relative; display: grid; gap: 18px; }
@@ -476,13 +479,15 @@
     <div class="oss">
       <div class="card proj reveal">
         <div class="card-icon"><svg><use href="#i-globe"/></svg></div>
+        <span class="pill status-merged">Merged</span>
         <h3>Internet Archive provider for Vega</h3>
-        <p>Brings public domain and Creative Commons films from archive.org into the Vega media app: catalog, search, series, every format and a license filter. Pull request under review; a newer version with subtitles runs as its own source.</p>
+        <p>Brings public domain and Creative Commons films from archive.org into the Vega media app: catalog, search, series, every format and a license filter. Merged into the official Vega providers repository; a newer version with subtitles runs as its own source.</p>
         <div class="tags"><span class="tag">TypeScript</span><span class="tag">REST APIs</span><span class="tag">Open source</span></div>
-        <a class="card-link" href="https://github.com/Zenda-Cross/vega-providers/pull/36" target="_blank" rel="noopener">View pull request <svg><use href="#i-arrow"/></svg></a>
+        <a class="card-link" href="https://github.com/Zenda-Cross/vega-providers/pull/36" target="_blank" rel="noopener">View merged pull request <svg><use href="#i-arrow"/></svg></a>
       </div>
       <div class="card proj reveal">
         <div class="card-icon"><svg><use href="#i-code"/></svg></div>
+        <span class="pill status-review">In review</span>
         <h3>Vega app: torrent streams in external players</h3>
         <p>Fix for issue #614: torrent links failed to open in an external video player. Pull request under review.</p>
         <div class="tags"><span class="tag">TypeScript</span><span class="tag">React Native</span><span class="tag">Bug fix</span></div>

@@ -41,3 +41,20 @@ footer{border-top:1px solid var(--line);color:var(--muted);font-size:.9rem;paddi
 @media(max-width:720px){.cols.two{grid-template-columns:1fr}.gallery img{height:340px}}
 .yt{position:relative;width:100%;max-width:300px;aspect-ratio:9/16;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#000}
 .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+/* Live meter demo (simulated), modelled on the app's Home screen */
+.meter{margin:24px 0 20px;border-radius:22px;padding:20px;color:#e6f2f2;background:radial-gradient(120% 140% at 0% 0%,#10304a 0%,#0a1a2c 55%,#081321 100%);border:1px solid #1d3b57;box-shadow:0 10px 30px rgba(8,19,33,.25)}
+.meter .top{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.meter .label{font-size:.72rem;letter-spacing:.12em;color:#7fb3c8;text-transform:uppercase}
+.meter .rate{font-size:2rem;font-weight:700;line-height:1.1;margin-top:2px;font-variant-numeric:tabular-nums}
+.meter .rate small{font-size:.9rem;font-weight:600;color:#9fc6d6;margin-left:4px}
+.meter .sub{font-size:.8rem;color:#7fb3c8;margin-bottom:12px}
+.meter .dl{color:#34d399}.meter .ul{color:#fbbf24}
+.meter .ring{position:relative;width:110px;height:110px;flex:0 0 auto}
+.meter .ring svg{width:110px;height:110px;transform:rotate(-90deg)}
+.meter .ring .mid{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-variant-numeric:tabular-nums}
+.meter .ring .mid b{font-size:1.25rem;line-height:1}
+.meter .ring .mid span{font-size:.62rem;color:#7fb3c8;letter-spacing:.1em}
+.meter canvas{display:block;width:100%;height:120px;margin-top:14px;border-top:1px solid #1d3b57}
+.meter .legend{display:flex;gap:16px;font-size:.78rem;color:#9fc6d6;margin-top:6px;flex-wrap:wrap}
+.meter .legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
+.meter .cap{font-size:.72rem;color:#6d96a8;margin-top:10px}

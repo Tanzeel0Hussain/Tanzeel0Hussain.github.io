@@ -29,6 +29,25 @@
     </div>
   </section>
 
+  <section class="meter" aria-label="Live meter demo">
+    <div class="top">
+      <div>
+        <div class="label">Current speed</div>
+        <div class="rate dl"><span id="dlNum">0</span><small id="dlUnit">KB/s</small></div>
+        <div class="sub">&#8595; Download</div>
+        <div class="rate ul"><span id="ulNum">0</span><small id="ulUnit">KB/s</small></div>
+        <div class="sub" style="margin-bottom:0">&#8593; Upload</div>
+      </div>
+      <div class="ring" aria-hidden="true">
+        <svg viewBox="0 0 110 110"><circle cx="55" cy="55" r="46" fill="none" stroke="#17324a" stroke-width="9"/><circle id="arc" cx="55" cy="55" r="46" fill="none" stroke="#34d399" stroke-width="9" stroke-linecap="round" stroke-dasharray="289" stroke-dashoffset="289"/></svg>
+        <div class="mid"><span>NOW</span><b id="ringNum">0</b><span id="ringUnit">KB/s</span></div>
+      </div>
+    </div>
+    <canvas id="graph" aria-hidden="true"></canvas>
+    <div class="legend"><span><i style="background:#34d399"></i>Download speed (&#8595;)</span><span><i style="background:#fbbf24"></i>Upload speed (&#8593;)</span></div>
+    <div class="cap">Live demo with simulated numbers. The real app shows your phone's actual speed, updated every second.</div>
+  </section>
+
   <a href="title.jpg"><img class="banner" src="thumbs/title.jpg" alt="Internet Flow Meter — track and optimize your data usage" width="1400" height="677"></a>
 
   <div class="cols two">
@@ -70,5 +89,49 @@
   </div>
 </main>
 <footer><div class="wrap">© Tanzeel Hussain</div></footer>
+<script>
+(function(){
+  var dlNum=document.getElementById('dlNum'),dlUnit=document.getElementById('dlUnit'),
+      ulNum=document.getElementById('ulNum'),ulUnit=document.getElementById('ulUnit'),
+      ringNum=document.getElementById('ringNum'),ringUnit=document.getElementById('ringUnit'),
+      arc=document.getElementById('arc'),cv=document.getElementById('graph');
+  if(!cv||!cv.getContext)return;
+  var ctx=cv.getContext('2d'),N=70,dl=[],ul=[],d=180,u=40,td=180,tu=40;
+  for(var i=0;i<N;i++){dl.push(d);ul.push(u);}
+  function fmt(kb){return kb>=1000?[(kb/1024).toFixed(1),'MB/s']:[Math.round(kb)+'','KB/s'];}
+  function step(){
+    if(Math.random()<0.12){td=Math.random()<0.35?1500+Math.random()*5500:20+Math.random()*400;}
+    if(Math.random()<0.15){tu=10+Math.random()*(Math.random()<0.2?900:120);}
+    d+= (td-d)*0.35+(Math.random()-.5)*d*0.12; u+= (tu-u)*0.35+(Math.random()-.5)*u*0.15;
+    d=Math.max(2,d);u=Math.max(1,u);
+    dl.push(d);dl.shift();ul.push(u);ul.shift();
+    var a=fmt(d),b=fmt(u);
+    dlNum.textContent=a[0];dlUnit.textContent=a[1];ulNum.textContent=b[0];ulUnit.textContent=b[1];
+    ringNum.textContent=a[0];ringUnit.textContent=a[1];
+    var frac=Math.min(1,Math.log(1+d)/Math.log(1+8000));
+    arc.style.strokeDashoffset=(289*(1-frac)).toFixed(1);
+    draw();
+  }
+  function draw(){
+    var dpr=window.devicePixelRatio||1,w=cv.clientWidth,h=cv.clientHeight;
+    if(cv.width!==Math.round(w*dpr)){cv.width=Math.round(w*dpr);cv.height=Math.round(h*dpr);}
+    ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);
+    ctx.strokeStyle='rgba(127,179,200,.15)';ctx.lineWidth=1;
+    for(var g=1;g<4;g++){var gy=h*g/4;ctx.beginPath();ctx.moveTo(0,gy);ctx.lineTo(w,gy);ctx.stroke();}
+    var max=1;for(var i=0;i<N;i++){max=Math.max(max,dl[i],ul[i]);}max*=1.15;
+    function line(arr,col,fill){
+      ctx.beginPath();
+      for(var i=0;i<N;i++){var x=i*(w/(N-1)),y=h-Math.sqrt(arr[i]/max)*(h-8)-2;if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);}
+      ctx.strokeStyle=col;ctx.lineWidth=2;ctx.lineJoin='round';ctx.stroke();
+      if(fill){ctx.lineTo(w,h);ctx.lineTo(0,h);ctx.closePath();ctx.fillStyle=fill;ctx.fill();}
+    }
+    line(dl,'#34d399','rgba(52,211,153,.12)');line(ul,'#fbbf24',null);
+  }
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  for(var k=0;k<N;k++)step();
+  if(!reduce){setInterval(step,800);}
+  window.addEventListener('resize',draw);
+})();
+</script>
 </body>
 </html>

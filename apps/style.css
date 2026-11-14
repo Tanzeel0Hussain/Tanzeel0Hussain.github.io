@@ -30,3 +30,12 @@ h2{font-size:1.25rem;color:var(--text);margin:2em 0 .6em}
 .shot{width:100%;max-width:240px;border-radius:18px;border:1px solid var(--line)}
 ul.feat{padding-left:1.2em}ul.feat li{margin:.35em 0}
 footer{border-top:1px solid var(--line);color:var(--muted);font-size:.9rem;padding:24px 0;margin-top:48px}
+.banner{width:100%;border-radius:20px;border:1px solid var(--line);display:block;margin:8px 0 0}
+.gallery{display:flex;gap:14px;overflow-x:auto;padding:4px 2px 16px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.gallery a{flex:0 0 auto;scroll-snap-align:start}
+.gallery img{height:420px;width:auto;border-radius:18px;border:1px solid var(--line);display:block}
+.gallery figure{margin:0}
+.gallery figcaption{font-size:.85rem;color:var(--muted);text-align:center;margin-top:6px}
+.video{width:100%;max-width:300px;border-radius:18px;border:1px solid var(--line);background:#000;display:block}
+.cols.two{grid-template-columns:1fr 300px}
+@media(max-width:720px){.cols.two{grid-template-columns:1fr}.gallery img{height:340px}}
